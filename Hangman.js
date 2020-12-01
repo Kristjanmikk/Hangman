@@ -44,7 +44,7 @@ window.onload = function () {
   // Select Catagory of the word
   var selectCat = function () {
     if (chosenCategory === categories[0]) {
-      catagoryName.innerHTML = "Words in the English lexicon";
+      catagoryName.innerHTML = "Word in the English lexicon";
     } 
   }
 
@@ -74,11 +74,12 @@ window.onload = function () {
    comments = function () {
     showLives.innerHTML = "You have " + lives + " lives";
     if (lives < 1) {
-      showLives.innerHTML = "Game Over";
+      showLives.innerHTML = "Game Over! The correct word was '" + word + "'!";
     }
     for (var i = 0; i < geusses.length; i++) {
       if (counter + space === geusses.length) {
         showLives.innerHTML = "You Win!";
+        
       }
     }
   }
@@ -90,6 +91,7 @@ window.onload = function () {
    check = function () {
     list.onclick = function () {
       var geuss = (this.innerHTML);
+      this.style.background = "black";
       this.setAttribute("class", "active");
       this.onclick = null;
       for (var i = 0; i < word.length; i++) {
@@ -140,3 +142,4 @@ window.onload = function () {
     location.reload();
   }
 }
+
