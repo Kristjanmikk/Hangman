@@ -1,5 +1,7 @@
 window.onload = function () {
 
+  
+
   var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -42,7 +44,7 @@ window.onload = function () {
   // Select Catagory of the word
   var selectCat = function () {
     if (chosenCategory === categories[0]) {
-      catagoryName.innerHTML = "Maailma riigid";
+      catagoryName.innerHTML = "Words in the English lexicon";
     } 
   }
 
@@ -110,29 +112,14 @@ window.onload = function () {
     
   // Play function that picks a random word and sets the starting paramaters
   play = function () {
-    categories = [
-        ["afghanistan","albania","algeria","andorra","angola","anguilla","antigua &amp; barbuda","argentina",
-        "armenia","aruba","australia","austria","azerbaijan","bahamas","bahrain","bangladesh","barbados","belarus",
-        "belgium","belize","benin","bermuda","bhutan","bolivia","bosnia &amp; herzegovina","botswana","brazil","british virgin islands"
-        ,"brunei","bulgaria","burkina faso","burundi","cambodia","cameroon","cape verde","cayman islands","chad","chile","china","colombia"
-        ,"congo","cook islands","costa rica","cote d ivoire","croatia","cruise ship","cuba","cyprus","czech republic","denmark","djibouti","dominica",
-        "dominican republic","ecuador","egypt","el salvador","equatorial guinea","estonia","ethiopia","falkland islands","faroe islands","fiji","finland",
-        "france","french polynesia","french west indies","gabon","gambia","georgia","germany","ghana","gibraltar","greece","greenland","grenada","guam","guatemala",
-        "guernsey","guinea","guinea bissau","guyana","haiti","honduras","hong kong","hungary","iceland","india","indonesia","iran","iraq","ireland","isle of man","israel",
-        "italy","jamaica","japan","jersey","jordan","kazakhstan","kenya","kuwait","kyrgyz republic","laos","latvia","lebanon","lesotho","liberia","libya","liechtenstein",
-        "lithuania","luxembourg","macau","macedonia","madagascar","malawi","malaysia","maldives","mali","malta","mauritania","mauritius","mexico","moldova","monaco","mongolia",
-        "montenegro","montserrat","morocco","mozambique","namibia","nepal","netherlands","netherlands antilles","new caledonia","new zealand","nicaragua","niger","nigeria","norway",
-        "oman","pakistan","palestine","panama","papua new guinea","paraguay","peru","philippines","poland","portugal","puerto rico","qatar","reunion","romania","russia","rwanda",
-        "saint pierre &amp; miquelon","samoa","san marino","satellite","saudi arabia","senegal","serbia","seychelles","sierra leone","singapore","slovakia","slovenia","south africa",
-        "south korea","spain","sri lanka","st kitts &amp; nevis","st lucia","st vincent","st. lucia","sudan","suriname","swaziland","sweden","switzerland","syria","taiwan","tajikistan",
-        "tanzania","thailand","timor l'este","togo","tonga","trinidad &amp; tobago","tunisia","turkey","turkmenistan","turks &amp; caicos","uganda","ukraine",
-        "united arab emirates","united kingdom","uruguay","uzbekistan","venezuela","vietnam","virgin islands (us)","yemen","zambia","zimbabwe"],
-    ];
-
+    
+    // Pick a word that exists in the english lexicon at random from words.js file
+    categories = [words.slice(0)];
+    console.log(words);
     chosenCategory = categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
-    console.log(word);
+    console.log(words);
     buttons();
 
     geusses = [ ];
@@ -153,4 +140,3 @@ window.onload = function () {
     location.reload();
   }
 }
-
